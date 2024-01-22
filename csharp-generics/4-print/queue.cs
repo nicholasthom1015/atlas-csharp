@@ -78,8 +78,8 @@ public class Queue<T>
             Console.WriteLine("Queue is empty");
             return;
         }
-        Node nodes = head;
-        while (nodes != null)
+        Node node = head;
+        while (node != null)
         {
             Console.WriteLine(node.value);
             node = node.next;
