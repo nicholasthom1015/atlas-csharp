@@ -1,1 +1,0 @@
-Advanced applications of C#
