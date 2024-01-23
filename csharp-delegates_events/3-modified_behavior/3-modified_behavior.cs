@@ -79,7 +79,7 @@ public enum Modifier
             return baseValue;
     }
 
+}
+
 /// <synaps> CalculateModifier Delegate </synaps>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
-
-}
