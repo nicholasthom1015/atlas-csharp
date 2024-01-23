@@ -6,10 +6,11 @@ public class Player
 {
     // <synaps> Name of Player </synaps>
     protected string name;
-  // <synaps> Current hp of Player </synaps>
+     // <synaps> Current Player hp </synaps>
     protected float hp;
-    // <synaps> maxHp of Player </synaps>
+    // <synaps> Player maxHp </synaps>
     protected float maxHp;
+   
 
     // <synaps> Player Status </synaps>
     private string status;
@@ -19,7 +20,7 @@ public class Player
     
     // <synaps> HPCheck EventHandler </synaps>
     public EventHandler<CurrentHPArgs> HPCheck;
-  
+
     // <synaps> Player Builder </synaps>
     public Player(string name="Player", float maxHp=100f)
     {
@@ -30,54 +31,43 @@ public class Player
         }
         this.maxHp = maxHp;
         this.hp = this.maxHp;
+        this.status = String.Format("{0} is ready to go!", name);
+        HPCheck += CheckStatus;
     }
 
-    // <synaps> Display Name, Hp, maxHp </synaps>
+    // <synaps> Print Player Health  </synaps>
     public void PrintHealth()
     {
         Console.WriteLine("{0} has {1} / {2} health", name, hp, maxHp);
     }
 
-    // <synaps> Player is Healed </synaps>
+    // <synaps> Player Takes Damage </synaps>
+    public void TakeDamage(float damage)
+    {
+        if( damage < 0f)
+            damage = 0f;
+        Console.WriteLine("{0} takes {1} damage!", name, damage);
+        ValidateHP(hp - damage);
+    }
+
+    // <synaps> Player Heals Damage </synaps>
     public void HealDamage(float heal)
     {
         if( heal < 0f)
             heal = 0f;
-       // Console.WriteLine("{0} uses Cure", name);
         Console.WriteLine("{0} heals {1} HP!", name, heal);
         ValidateHP(hp + heal);
 
     }
 
-    // <synaps> Player takes Damage </synaps>
-    public void TakeDamage(float damage)
-    {
-        if( damage < 0f)
-            damage = 0f;
-           // Console.WriteLine("{0} is going to feel that", name);
-            Console.WriteLine("{0} takes {1} damage!", name, damage);
-            ValidateHP(hp - damage);
-
-    }
-
-   // <synaps> Validate Player Hp </synaps>
+    // <synaps> Validates HP </synaps>
     public void ValidateHP(float newHp)
     {
         hp = Math.Clamp(newHp, 0, maxHp);
+        HPCheck(this, new CurrentHPArgs(this.hp));
     }
 
-  // <synaps> Damage Modifier Enums </synaps>
-public enum Modifier
-    {
-     // <synaps> Weak Modifier, Not Effective </synaps>
-        Weak,
-    // <synaps> Base Modifier </synaps>
-        Base,
-    // <synaps> Strong Modifier. Super Effective </synaps>
-    Strong
-    }
-
-  // <synaps> Apply Damage Modifier </synaps>
+    // <synaps> Apply Damage Modifiers </synaps>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
@@ -88,7 +78,7 @@ public enum Modifier
             return baseValue;
     }
 
-  // <synaps> CheckStatus of Player </synaps>
+    // <synaps> Check Player Status </synaps>
     public void CheckStatus(object sender, CurrentHPArgs e)
     {
         float state = e.currentHp/maxHp;
@@ -107,16 +97,30 @@ public enum Modifier
         Console.WriteLine(status);
     }
 
-    // <synaps> CalculateModifier Delegate </synaps>
-    public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
-    // <synaps> CurrentHPArgs Class </synaps>
-    public class CurrentHPArgs : EventArgs
+}
+
+// <synaps> Damage Modifier Enums </synaps>
+public enum Modifier
 {
-    // <synaps> Player CurrentHp </synaps>
+    // <synaps> Weak Modifier, Not Effective </synaps>
+    Weak,
+    // <synaps> Base Modifier </synaps>
+    Base,
+    // <synaps> Strong Modifier, Super Effective </synaps>
+    Strong
+}
+
+// <synaps> CalculateModifier Delegate </synaps>
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
+
+// <synaps> Player CurrentHPArgs </synaps>
+public class CurrentHPArgs : EventArgs
+{
+    // <synaps> Player CurrentHp Property </synaps>
     public float currentHp { get; }
 
-    // <synaps> Player CurrentHPArgs </synaps>
+    // <synaps> Player CurrentHPArgs Constructor </synaps>
     public CurrentHPArgs(float newHp)
     {
         this.currentHp = newHp;
