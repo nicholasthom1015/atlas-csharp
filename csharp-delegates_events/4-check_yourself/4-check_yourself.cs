@@ -107,8 +107,6 @@ public enum Modifier
         Console.WriteLine(status);
     }
 
-}
-
     // <synaps> CalculateModifier Delegate </synaps>
     public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
