@@ -109,11 +109,11 @@ public enum Modifier
 
 }
 
-// <synaps> CalculateModifier Delegate </synaps>
-public delegate float CalculateModifier(float baseValue, Modifier modifier);
+    // <synaps> CalculateModifier Delegate </synaps>
+    public delegate float CalculateModifier(float baseValue, Modifier modifier);
 
-// <synaps> CurrentHPArgs Class </synaps>
-public class CurrentHPArgs : EventArgs
+    // <synaps> CurrentHPArgs Class </synaps>
+    public class CurrentHPArgs : EventArgs
 {
     // <synaps> Player CurrentHp </synaps>
     public float currentHp { get; }
