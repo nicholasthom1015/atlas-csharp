@@ -11,6 +11,9 @@ public class Player
     /// <synaps> maxHp of Player </synaps>
     protected float maxHp;
 
+    /// <synaps> Player delegate </synaps>
+    public delegate void CalculateHealth(float amount);
+
     /// <synaps> Player Builder </synaps>
     public Player(string name="Player", float maxHp=100f)
     {
