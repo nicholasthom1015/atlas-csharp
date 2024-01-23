@@ -1,17 +1,20 @@
 using System;
 
 
-/// <synaps> Player class </synaps>
+/// <summary> Player class </summary>
 public class Player
 {
-    /// <synaps> Name of Player </synaps>
+    /// <summary> Player name </summary>
     protected string name;
-  /// <synaps> Current hp of Player </synaps>
-    protected float hp;
-    /// <synaps> maxHp of Player </synaps>
+    /// <summary> Player maxHp </summary>
     protected float maxHp;
+    /// <summary> Player hp </summary>
+    protected float hp;
 
-    /// <synaps> Player Builder </synaps>
+    /// <summary> Player delegate </summary>
+    public delegate void CalculateHealth(float amount);
+
+    /// <summary> Player Constructor </summary>
     public Player(string name="Player", float maxHp=100f)
     {
         this.name = name;
@@ -23,52 +26,38 @@ public class Player
         this.hp = this.maxHp;
     }
 
-    /// <synaps> Display Name, Hp, maxHp </synaps>
+    /// <summary> PrintHealth Method </summary>
     public void PrintHealth()
     {
         Console.WriteLine("{0} has {1} / {2} health", name, hp, maxHp);
     }
 
-    /// <synaps> Player is Healed </synaps>
+    /// <summary> TakeDamage Method </summary>
+    public void TakeDamage(float damage)
+    {
+        if( damage < 0f)
+            damage = 0f;
+        Console.WriteLine("{0} takes {1} damage!", name, damage);
+        ValidateHP(hp - damage);
+    }
+
+    /// <summary> HealDamage Method </summary>
     public void HealDamage(float heal)
     {
         if( heal < 0f)
             heal = 0f;
-       // Console.WriteLine("{0} uses Cure", name);
         Console.WriteLine("{0} heals {1} HP!", name, heal);
         ValidateHP(hp + heal);
 
     }
 
-    /// <synaps> Player takes Damage </synaps>
-    public void TakeDamage(float damage)
-    {
-        if( damage < 0f)
-            damage = 0f;
-           // Console.WriteLine("{0} is going to feel that", name);
-            Console.WriteLine("{0} takes {1} damage!", name, damage);
-            ValidateHP(hp - damage);
-
-    }
-
-   /// <synaps> Validate Player Hp </synaps>
+    /// <summary> Validates HP </summary>
     public void ValidateHP(float newHp)
     {
         hp = Math.Clamp(newHp, 0, maxHp);
     }
 
-  /// <synaps> Damage Modifier Enums </synaps>
-public enum Modifier
-    {
-     /// <synaps> Weak Modifier, Not Effective </synaps>
-        Weak,
-    /// <synaps> Base Modifier </synaps>
-        Base,
-    /// <synaps> Strong Modifier. Super Effective </synaps>
-    Strong
-    }
-
-  /// <synaps> Apply Damage Modifier </synaps>
+    /// <summary> ApplyModifier Method </summary>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
@@ -78,8 +67,18 @@ public enum Modifier
         else
             return baseValue;
     }
-
 }
 
-/// <synaps> CalculateModifier Delegate </synaps>
+/// <summary> Modifier Enum </summary>
+public enum Modifier
+{
+    /// <summary> Weak Modifier </summary>
+    Weak,
+    /// <summary> Base Modifier </summary>
+    Base,
+    /// <summary> Strong Modifier </summary>
+    Strong
+}
+
+/// <summary> CalculateModifier Delegate </summary>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
