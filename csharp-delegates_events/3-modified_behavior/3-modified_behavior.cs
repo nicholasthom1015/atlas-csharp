@@ -59,14 +59,14 @@ public class Player
 
   /// <synaps> Damage Modifier Enums </synaps>
 public enum Modifier
-{
-    /// <synaps> Weak Modifier, Not Effective </synaps>
-    Weak,
+    {
+     /// <synaps> Weak Modifier, Not Effective </synaps>
+        Weak,
     /// <synaps> Base Modifier </synaps>
-    Base,
+        Base,
     /// <synaps> Strong Modifier. Super Effective </synaps>
     Strong
-}
+    }
 
   /// <synaps> Apply Damage Modifier </synaps>
     public float ApplyModifier(float baseValue, Modifier modifier)
@@ -78,7 +78,8 @@ public enum Modifier
         else
             return baseValue;
     }
-}
 
 /// <synaps> CalculateModifier Delegate </synaps>
-public delegate float CalculateModifier(float baseValue, modifier);
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
+
+}
