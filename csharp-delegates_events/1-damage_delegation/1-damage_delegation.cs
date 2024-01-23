@@ -44,7 +44,7 @@ public class Player
     {
         if( damage < 0f)
             damage = 0f;
-            Console.WriteLine("{0} is going to feel that", name)
+            Console.WriteLine("{0} is going to feel that", name);
             Console.WriteLine("{0} takes {1} damage!", name, damage);
 
     }
