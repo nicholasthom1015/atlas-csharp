@@ -81,4 +81,4 @@ public enum Modifier
 }
 
 /// <synaps> CalculateModifier Delegate </synaps>
-public delegate float CalculateModifier(float baseValue, modifier modifier);
+public delegate float CalculateModifier(float baseValue, modifier);
