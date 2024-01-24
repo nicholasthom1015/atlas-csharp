@@ -2,19 +2,19 @@
 
 namespace InventoryLibrary
 {
-    /// <synaps> BaseClass </synaps>
+    // <synaps> BaseClass </synaps>
     public class BaseClass
     {
-        /// <synaps> Id of BaseClass </synaps>
+        // <synaps> Id of BaseClass </synaps>
         public string id { get;}
 
-        /// <synaps> date created </synaps>
+        // <synaps> date created </synaps>
         public DateTime date_created { get;}
 
-        /// <synaps> date updated </synaps>
+        // <synaps> date updated </synaps>
         public DateTime date_updated { get;}
     
-        /// <synaps> BaseClass Builder </synaps>
+        // <synaps> BaseClass Builder </synaps>
         public BaseClass()
         {
             this.id = Guid.NewGuid().ToString();
