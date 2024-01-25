@@ -28,10 +28,10 @@ public class Player
             Console.WriteLine("maxHp must be greater than 0. maxHp set to 100f by default.");
             maxHp = 100f;
         }
-      //  this.maxHp = maxHp;
-        //this.hp = this.maxHp;
+        this.maxHp = maxHp;
+        this.hp = this.maxHp;
         //this.status = String.Format("{0} is ready to go!", name);
-        //HPCheck += CheckStatus;
+        HPCheck += CheckStatus;
     }
 
     /// <synaps> PrintHealth </synaps>
