@@ -1,6 +1,6 @@
 using System;
 
-// <synaps> Matrix Math </synaps>
+// <synaps> Matrix Math class</synaps>
 public static class MatrixMath
 {
     // <synaps> Matrix Addition </synaps>
