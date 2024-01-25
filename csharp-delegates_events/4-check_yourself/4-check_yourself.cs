@@ -74,18 +74,18 @@ public class Player
     }
 
     private void HPValueWarning(object sender, CurrentHPArgs e)
-  //  {
-       // if ( e.currentHp == 0)
-       // {
-          //  Console.ForegroundColor = ConsoleColor.Red;
-       //     Console.WriteLine("Health has reached zero!");
-         //   Console.ResetColor();
-          //  return ;
-     //   }
-      //  Console.ForegroundColor = ConsoleColor.Yellow;
-     //   Console.WriteLine("Health is low!");
-     //   Console.ResetColor();
-  //  }
+    {
+        if ( e.currentHp == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Health has reached zero!");
+            Console.ResetColor();
+            return ;
+        }
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Health is low!");
+        Console.ResetColor();
+    }
 
     /// <synaps> ApplyModifier </synaps>
     public float ApplyModifier(float baseValue, Modifier modifier)
