@@ -3,7 +3,7 @@ using System;
 // <synaps>
 // Vector Math 
 // </synaps>
-public static class VectorMath
+    public static class VectorMath
 {
     //<synaps> Vector Magnitude </synaps>
     public static double Magnitude(double[] vector)
