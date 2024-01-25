@@ -1,9 +1,11 @@
 using System;
 
-////<synaps>Vector Math class</synaps>
+// <synaps>
+// Vector Math 
+// </synaps>
 public static class VectorMath
 {
-    ////<synaps> Vector Magnitude </synaps>
+    //<synaps> Vector Magnitude </synaps>
     public static double Magnitude(double[] vector)
     {
         if ( vector.Length > 3 || vector.Length < 2)
@@ -15,7 +17,7 @@ public static class VectorMath
         return Math.Round(Math.Sqrt(sum), 2);
     }
 
-    ////<synaps> Vector Addition </synaps>
+    //<synaps> Vector Addition </synaps>
     public static double[] Add(double[] vector1, double[] vector2)
     {
         if ( vector1.Length != vector2.Length || vector1.Length > 3 || vector1.Length < 2)
@@ -27,7 +29,7 @@ public static class VectorMath
         return sum;
     }
 
-    ////<synaps> Vector Scalar Multiplication </synaps>
+    //<synaps> Vector Scalar Multiplication </synaps>
     public static double[] Multiply(double[] vector, double scalar)
     {
         if ( vector.Length > 3 || vector.Length < 2)
