@@ -1,20 +1,20 @@
 using System;
 
 
-// <synaps> Player class </synaps>
+// <summary> Player class </summary>
 public class Player
 {
-    // <synaps> Name of Player </synaps>
+    // <summary> Name of Player </summary>
     protected string name;
-     // <synaps> Current hp of Player </synaps>
-    protected float hp;
-    // <synaps> Maxxhp of Player </synaps>
+    // <summary> Maxhp of Player </summary>
     protected float maxHp;
-   
-    // <synaps> Player delegate </synaps>
+    // <summary> Current of Player </summary>
+    protected float hp;
+
+    // <summary> Player delegate </summary>
     public delegate void CalculateHealth(float amount);
 
-    // <synaps> Player Builder </synaps>
+    // <summary> Player Builder </summary>
     public Player(string name="Player", float maxHp=100f)
     {
         this.name = name;
@@ -26,13 +26,13 @@ public class Player
         this.hp = this.maxHp;
     }
 
-    // <synaps> PrintHealth Method </synaps>
+    // <summary> PrintHealth </summary>
     public void PrintHealth()
     {
         Console.WriteLine("{0} has {1} / {2} health", name, hp, maxHp);
     }
 
-    // <synaps> Player takes Damage </synaps>
+    // <summary> Player takes Damage </summary>
     public void TakeDamage(float damage)
     {
         if( damage < 0f)
@@ -41,7 +41,7 @@ public class Player
         ValidateHP(hp - damage);
     }
 
-    // <synaps> Player is Healed </synaps>
+    // <summary> Player is Healed </summary>
     public void HealDamage(float heal)
     {
         if( heal < 0f)
@@ -51,13 +51,13 @@ public class Player
 
     }
 
-    // <synaps> Validates HP </synaps>
+    // <summary> Validates HP</summary>
     public void ValidateHP(float newHp)
     {
         hp = Math.Clamp(newHp, 0, maxHp);
     }
 
-    // <synaps> ApplyModifier Method </synaps>
+    // <summary> ApplyModifier </summary>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
@@ -69,16 +69,16 @@ public class Player
     }
 }
 
-// <synaps> Modifier Enum </synaps>
+// <summary> Modifier Enum </summary>
 public enum Modifier
 {
-    // <synaps> Weak Modifier, Not Effective </synaps>
+    // <summary> Weak Modifier </summary>
     Weak,
-    // <synaps> Base Modifier </synaps>
+    // <summary> Base Modifier </summary>
     Base,
-    // <synaps> Strong Modifier, Super Effective </synaps>
+    // <summary> Strong Modifier </summary>
     Strong
 }
 
-// <synaps> CalculateModifier Delegate </synaps>
+// <summary> CalculateModifier Delegate </summary>
 public delegate float CalculateModifier(float baseValue, Modifier modifier);
