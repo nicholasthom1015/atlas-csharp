@@ -1,6 +1,6 @@
 using System;
 
-////<synaps>Vector Math </synaps>
+////<synaps>Vector Math class</synaps>
 public static class VectorMath
 {
     ////<synaps> Vector Magnitude </synaps>
