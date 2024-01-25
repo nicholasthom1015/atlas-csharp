@@ -12,7 +12,7 @@ public class Player
     protected float hp;
 
     /// <synaps> Status </synaps>
-    private string status;
+   // private string status;
 
     /// <synaps> Player delegate </synaps>
     public delegate void CalculateHealth(float amount);
