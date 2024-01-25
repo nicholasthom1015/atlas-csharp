@@ -73,7 +73,7 @@ public class Player
         HPCheck(this, e);
     }
 
-    //private void HPValueWarning(object sender, CurrentHPArgs e)
+    private void HPValueWarning(object sender, CurrentHPArgs e)
   //  {
        // if ( e.currentHp == 0)
        // {
