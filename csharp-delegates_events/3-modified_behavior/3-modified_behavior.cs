@@ -101,17 +101,17 @@ public class Player
     /// <synaps> CheckStatus </synaps>
     public void CheckStatus(object sender, CurrentHPArgs e)
     {
-        float state = e.currentHp/maxHp;
-        if (state == 1)
-            status = String.Format("{0} is in perfect health!", name);
-        else if (state >=0.5f)
-            status = String.Format("{0} is doing well!", name);
-        else if (state >=0.25f)
-            status = String.Format("{0} isn't doing too great...", name);
-        else if (state >0f)
-            status = String.Format("{0} needs help!", name);
-        else
-            status = String.Format("{0} is knocked out!", name);
+       // float state = e.currentHp/maxHp;
+        //if (state == 1)
+          //  status = String.Format("{0} is in perfect health!", name);
+        //else if (state >=0.5f)
+          //  status = String.Format("{0} is doing well!", name);
+        //else if (state >=0.25f)
+          //  status = String.Format("{0} isn't doing too great...", name);
+        //else if (state >0f)
+          //  status = String.Format("{0} needs help!", name);
+        //else
+          //  status = String.Format("{0} is knocked out!", name);
 
 
         Console.WriteLine(status);
