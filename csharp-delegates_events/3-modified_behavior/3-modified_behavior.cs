@@ -114,7 +114,7 @@ public class Player
           //  status = String.Format("{0} is knocked out!", name);
 
 
-        Console.WriteLine(status);
+        //Console.WriteLine(status);
     }
 
 
