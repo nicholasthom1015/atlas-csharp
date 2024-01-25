@@ -1,7 +1,7 @@
 using System;
 
 // <synaps> Matrix Math </synaps>
-public static class MatrixMath;
+public static class MatrixMath
 {
     // <synaps> Matrix Addition </synaps>
     public static double[,] Add(double[,] matrix1, double[,] matrix2)
