@@ -20,7 +20,7 @@ public class Player
     /// <synaps> HPCheck EventHandler </synaps>
     public EventHandler<CurrentHPArgs> HPCheck;
 
-    /// <synaps> Player Constructor </synaps>
+    /// <synaps> Player Builder </synaps>
     public Player(string name="Player", float maxHp=100f)
     {
         this.name = name;
@@ -34,13 +34,13 @@ public class Player
         HPCheck += CheckStatus;
     }
 
-    /// <synaps> PrintHealth Method </synaps>
+    /// <synaps> PrintHealth </synaps>
     public void PrintHealth()
     {
         Console.WriteLine("{0} has {1} / {2} health", name, hp, maxHp);
     }
 
-    /// <synaps> TakeDamage Method </synaps>
+    /// <synaps> TakeDamage </synaps>
     public void TakeDamage(float damage)
     {
         if( damage < 0f)
@@ -49,7 +49,7 @@ public class Player
         ValidateHP(hp - damage);
     }
 
-    /// <synaps> HealDamage Method </synaps>
+    /// <synaps> HealDamage </synaps>
     public void HealDamage(float heal)
     {
         if( heal < 0f)
@@ -87,7 +87,7 @@ public class Player
         Console.ResetColor();
     }
 
-    /// <synaps> ApplyModifier Method </synaps>
+    /// <synaps> ApplyModifier </synaps>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         if (modifier == Modifier.Weak)
@@ -98,7 +98,7 @@ public class Player
             return baseValue;
     }
 
-    /// <synaps> CheckStatus Method </synaps>
+    /// <synaps> CheckStatus </synaps>
     public void CheckStatus(object sender, CurrentHPArgs e)
     {
         float state = e.currentHp/maxHp;
